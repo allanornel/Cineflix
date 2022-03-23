@@ -91,3 +91,30 @@ main {
 .container-dia {
   margin-bottom: 23px;
 }
+
+/* SESSOES */
+
+.container-assentos {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.assento {
+  width: 26px;
+  height: 26px;
+  background: #c3cfd9;
+  border: 1px solid #808f9d;
+  border-radius: 12px;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  color: #000000;
+  margin-left: 7px;
+  margin-bottom: 18px;
+}
+
+.assento p {
+  margin: auto;
+}

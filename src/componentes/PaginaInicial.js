@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import image1 from "./../assets/img/filme1.png";
 import image2 from "./../assets/img/filme2.png";
 
@@ -8,9 +9,11 @@ export default function PaginaInicial() {
         <p>Selecione o filme</p>
       </div>
       <div className="container-filmes">
-        <div className="container-filme">
-          <img src={image1} alt="" />
-        </div>
+        <Link to="/filme">
+          <div className="container-filme">
+            <img src={image1} alt="" />
+          </div>
+        </Link>
         <div className="container-filme">
           <img src={image2} alt="" />
         </div>
