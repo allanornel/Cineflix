@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import image1 from "./../assets/img/filme1.png";
+import GetAssentos from "./../data/GetAssentos";
+import { useParams } from "react-router-dom";
 
 export default function Sessao() {
-  const dataAssento = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-  ];
+  const { idSessao } = useParams();
+  // const dataAssento = [
+  //   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+  //   22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+  //   41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  // ];
   return (
     <>
       <main>
@@ -14,27 +16,7 @@ export default function Sessao() {
           <p>Selecione o(s) assento(s)</p>
         </div>
         <div className="container-assentos">
-          {dataAssento.map((assento) => {
-            if (assento === 15 || assento === 16) {
-              return (
-                <div className="assento selecionado">
-                  <p>{assento}</p>
-                </div>
-              );
-            }
-            if (assento === 30) {
-              return (
-                <div className="assento indisponivel">
-                  <p>{assento}</p>
-                </div>
-              );
-            }
-            return (
-              <div className="assento">
-                <p>{assento}</p>
-              </div>
-            );
-          })}
+          <GetAssentos idSessao={idSessao} />
         </div>
         <div className="legendas">
           <div className="legenda">
@@ -60,15 +42,6 @@ export default function Sessao() {
           </Link>
         </div>
       </main>
-      <footer>
-        <div className="container-filme">
-          <img src={image1} alt="" />
-        </div>
-        <div>
-          <p>Enola holmes</p>
-          <p>Quinta-feira - 15:00</p>
-        </div>
-      </footer>
     </>
   );
 }

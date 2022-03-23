@@ -15,8 +15,8 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<PaginaInicial />}></Route>
-        <Route path="/filme" element={<Filme />}></Route>
-        <Route path="/sessao" element={<Sessao />}></Route>
+        <Route path="/filme/:idFilme" element={<Filme />}></Route>
+        <Route path="/sessao/:idSessao" element={<Sessao />}></Route>
         <Route path="/sucesso" element={<Sucesso />}></Route>
       </Routes>
     </BrowserRouter>
