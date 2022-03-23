@@ -7,6 +7,7 @@ import Filme from "./Filme";
 import PaginaInicial from "./PaginaInicial";
 import Navbar from "./Navbar";
 import Sessao from "./Sessao";
+import Sucesso from "./Sucesso";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<PaginaInicial />}></Route>
         <Route path="/filme" element={<Filme />}></Route>
         <Route path="/sessao" element={<Sessao />}></Route>
+        <Route path="/sucesso" element={<Sucesso />}></Route>
       </Routes>
     </BrowserRouter>
   );

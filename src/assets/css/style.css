@@ -118,3 +118,141 @@ main {
 .assento p {
   margin: auto;
 }
+
+.circle {
+  width: 26px;
+  height: 26px;
+  border: 1px solid;
+  border-radius: 12px;
+  color: #000000;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+}
+
+.selecionado {
+  background: #8dd7cf;
+  border: 1px solid #1aae9e;
+}
+
+.disponivel {
+  background: #c3cfd9;
+  border: 1px solid #7b8b99;
+}
+
+.indisponivel {
+  background: #fbe192;
+  border: 1px solid #f7c52b;
+}
+
+.legendas {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 41px;
+  font-size: 13px;
+  color: #4e5a65;
+}
+
+.legendas .circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 17px;
+  margin-bottom: 5px;
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.sessao-inputs {
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  flex-direction: column;
+  margin: auto 24px;
+}
+
+.sessao-inputs p {
+  color: #293845;
+  margin-bottom: 1px;
+  margin-top: 7px;
+}
+
+.sessao-inputs input {
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 327px;
+  height: 51px;
+}
+
+.sessao-inputs button {
+  text-align: center;
+
+  width: 225px;
+  height: 42px;
+  background: #e8833a;
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  margin-top: 54px;
+}
+
+.sessao-inputs a {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+/* PAGE SUCESSO */
+
+.sucesso {
+  margin-left: 28px;
+}
+.sucesso .titulo {
+  height: 80px;
+
+  color: #247a6b;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.sucesso h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #293845;
+  margin-bottom: 8px;
+  margin-top: 35px;
+}
+
+.sucesso p {
+  font-size: 22px;
+  line-height: 26px;
+  color: #293845;
+}
+
+.sucesso a {
+  display: flex;
+  justify-content: center;
+}
+
+.sucesso button {
+  width: 225px;
+  height: 42px;
+  font-size: 18px;
+  color: #ffffff;
+  background: #e8833a;
+  border-radius: 3px;
+  font-family: "Roboto";
+  margin-top: 62px;
+}
