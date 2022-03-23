@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function GetAssentos({ idSessao }) {
   const [assentos, setAssentos] = useState([]);
-  const [selecionados, setSelecionados] = useState([]);
+  // const [selecionados, setSelecionados] = useState([]);
 
   useEffect(() => {
     const requisicao = axios.get(

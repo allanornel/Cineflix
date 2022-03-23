@@ -7,6 +7,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* reset of Anchor */
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 /* HEADER */
 
 header {
@@ -119,7 +125,7 @@ footer .container-filme img {
 /* SESSOES */
 
 .container-assentos {
-  width: 90%;
+  width: 334px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
