@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default function GetAssentos({ idSessao }) {
   const [assentos, setAssentos] = useState([]);
+  const [selecionado, setSelecionado] = useState("");
   // const [selecionados, setSelecionados] = useState([]);
 
   useEffect(() => {
@@ -26,10 +27,12 @@ export default function GetAssentos({ idSessao }) {
         {assentos.seats.map((assento) => {
           return (
             <div
-              onClick={clicarAssento(assento.isAvailable, assento.id)}
+              onClick={clicarAssento(assento.isAvailable)}
               key={assento.id}
               className={
-                assento.isAvailable ? "assento" : "assento indisponivel"
+                assento.isAvailable
+                  ? "assento" + selecionado
+                  : "assento indisponivel"
               }
             >
               <p>{assento.name}</p>
@@ -52,7 +55,11 @@ export default function GetAssentos({ idSessao }) {
   }
 
   function clicarAssento(disponivel, id) {
-    if (disponivel) {
-    }
+    // if (disponivel) {
+    //   if (selecionado === " selecionado") {
+    //     setSelecionado("");
+    // } else {
+    //        setSelecionado(" selecionado");
+    // }
   }
 }
