@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import image1 from "./../assets/img/filme1.png";
 
 export default function Sessao() {
   const dataAssento = [
@@ -7,56 +8,67 @@ export default function Sessao() {
     41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
   ];
   return (
-    <main>
-      <div className="titulo">
-        <p>Selecione o(s) assento(s)</p>
-      </div>
-      <div className="container-assentos">
-        {dataAssento.map((assento) => {
-          if (assento === 15 || assento === 16) {
+    <>
+      <main>
+        <div className="titulo">
+          <p>Selecione o(s) assento(s)</p>
+        </div>
+        <div className="container-assentos">
+          {dataAssento.map((assento) => {
+            if (assento === 15 || assento === 16) {
+              return (
+                <div className="assento selecionado">
+                  <p>{assento}</p>
+                </div>
+              );
+            }
+            if (assento === 30) {
+              return (
+                <div className="assento indisponivel">
+                  <p>{assento}</p>
+                </div>
+              );
+            }
             return (
-              <div className="assento selecionado">
+              <div className="assento">
                 <p>{assento}</p>
               </div>
             );
-          }
-          if (assento === 30) {
-            return (
-              <div className="assento indisponivel">
-                <p>{assento}</p>
-              </div>
-            );
-          }
-          return (
-            <div className="assento">
-              <p>{assento}</p>
-            </div>
-          );
-        })}
-      </div>
-      <div className="legendas">
-        <div className="legenda">
-          <div className="circle selecionado"></div>
-          <p>Selecionado</p>
+          })}
         </div>
-        <div className="legenda">
-          <div className="circle disponivel"></div>
-          <p>Disponível</p>
+        <div className="legendas">
+          <div className="legenda">
+            <div className="circle selecionado"></div>
+            <p>Selecionado</p>
+          </div>
+          <div className="legenda">
+            <div className="circle disponivel"></div>
+            <p>Disponível</p>
+          </div>
+          <div className="legenda">
+            <div className="circle indisponivel"></div>
+            <p>Indisponível</p>
+          </div>
         </div>
-        <div className="legenda">
-          <div className="circle indisponivel"></div>
-          <p>Indisponível</p>
+        <div className="sessao-inputs">
+          <p>Nome do comprador:</p>
+          <input type="text" placeholder="Digite seu nome..."></input>
+          <p>CPF do comprador:</p>
+          <input type="text" placeholder="Digite seu CPF..."></input>
+          <Link to="/sucesso">
+            <button>Reservar assento(s)</button>
+          </Link>
         </div>
-      </div>
-      <div className="sessao-inputs">
-        <p>Nome do comprador:</p>
-        <input type="text" placeholder="Digite seu nome..."></input>
-        <p>CPF do comprador:</p>
-        <input type="text" placeholder="Digite seu CPF..."></input>
-        <Link to="/sucesso">
-          <button>Reservar assento(s)</button>
-        </Link>
-      </div>
-    </main>
+      </main>
+      <footer>
+        <div className="container-filme">
+          <img src={image1} alt="" />
+        </div>
+        <div>
+          <p>Enola holmes</p>
+          <p>Quinta-feira - 15:00</p>
+        </div>
+      </footer>
+    </>
   );
 }

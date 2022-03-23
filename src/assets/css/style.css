@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   font-family: "Roboto", sans-serif;
 }
 
@@ -90,6 +90,30 @@ main {
 
 .container-dia {
   margin-bottom: 23px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 117px;
+  background-color: #dfe6ed;
+  border: 1px solid #9eadba;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 26px;
+  color: #293845;
+}
+
+footer .container-filme {
+  margin-left: 10px;
+  margin-right: 14px;
+}
+footer .container-filme img {
+  width: 48px;
+  height: 72px;
 }
 
 /* SESSOES */
