@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import Assento from "./../componentes/Assento";
-import postAssentos from "./postAssentos";
 
 export default function GetAssentos({ idSessao }) {
   const [assentos, setAssentos] = useState([]);
@@ -73,11 +72,9 @@ export default function GetAssentos({ idSessao }) {
             placeholder="Digite seu CPF..."
             onChange={(e) => setCpf(e.target.value)}
           />
-          <Link to="/sucesso">
-            <button onClick={() => botaoSucesso(idSelecionados, nome, cpf)}>
-              Reservar assento(s)
-            </button>
-          </Link>
+          <button onClick={() => botaoSucesso(idSelecionados, nome, cpf)}>
+            Reservar assento(s)
+          </button>
         </div>
 
         <footer>
@@ -104,7 +101,13 @@ export default function GetAssentos({ idSessao }) {
       dia: assentos.day.weekday,
       hora: assentos.name,
     };
-    navigate("/sucesso", { state: objNavigate });
-    postAssentos(obj);
+    const requisicaoPost = axios.post(
+      "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
+      obj
+    );
+    requisicaoPost.then(() => {
+      navigate("/sucesso", { state: objNavigate });
+    });
+    requisicaoPost.catch((resposta) => console.log(resposta));
   }
 }

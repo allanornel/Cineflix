@@ -3,18 +3,22 @@ import { Link, useLocation } from "react-router-dom";
 export default function Sucesso() {
   const location = useLocation();
   console.log(location);
+  const { nome, cpf, dia, titulo, hora, ids } = location.state;
   return (
     <main className="sucesso">
       <h1 className="titulo">Pedido feito com sucesso!</h1>
       <h2>Filme e sessão</h2>
-      <p>Enola Holmes </p>
-      <p>24/06/2021 15:00</p>
+      <p>{titulo} </p>
+      <p>
+        {dia} {hora}
+      </p>
       <h2>Ingressos</h2>
-      <p>Assento 15</p>
-      <p>Assento 16</p>
+      {ids.map((id) => (
+        <p> Asssento {id}</p>
+      ))}
       <h2>Comprador</h2>
-      <p>Nome: João da Silva Sauro</p>
-      <p>CPF: 123.456.789-10</p>
+      <p>Nome: {nome}</p>
+      <p>CPF: {cpf}</p>
       <Link to="/">
         <button>Voltar pra Home</button>
       </Link>
