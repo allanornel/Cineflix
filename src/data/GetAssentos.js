@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import axios from "axios";
+import Assento from "./../componentes/Assento";
+import postAssentos from "./postAssentos";
 
 export default function GetAssentos({ idSessao }) {
   const [assentos, setAssentos] = useState([]);
-  const [selecionado, setSelecionado] = useState("");
-  // const [selecionados, setSelecionados] = useState([]);
+  const [idSelecionados, setIdSelecionados] = useState([]);
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const requisicao = axios.get(
@@ -24,21 +30,56 @@ export default function GetAssentos({ idSessao }) {
   } else {
     return (
       <>
-        {assentos.seats.map((assento) => {
-          return (
-            <div
-              onClick={clicarAssento(assento.isAvailable)}
-              key={assento.id}
-              className={
-                assento.isAvailable
-                  ? "assento" + selecionado
-                  : "assento indisponivel"
-              }
-            >
-              <p>{assento.name}</p>
-            </div>
-          );
-        })}
+        <div className="container-assentos">
+          {assentos.seats.map((assento) => {
+            return (
+              <Assento
+                key={assento.id}
+                id={assento.id}
+                isAvailable={assento.isAvailable}
+                name={assento.name}
+                idSelecionados={idSelecionados}
+                setIdSelecionados={setIdSelecionados}
+              />
+            );
+          })}
+        </div>
+        <div className="legendas">
+          <div className="legenda">
+            <div className="circle selecionado"></div>
+            <p>Selecionado</p>
+          </div>
+          <div className="legenda">
+            <div className="circle disponivel"></div>
+            <p>Disponível</p>
+          </div>
+          <div className="legenda">
+            <div className="circle indisponivel"></div>
+            <p>Indisponível</p>
+          </div>
+        </div>
+        <div className="sessao-inputs">
+          <p>Nome do comprador:</p>
+          <input
+            type="text"
+            value={nome}
+            placeholder="Digite seu nome..."
+            onChange={(e) => setNome(e.target.value)}
+          />
+          <p>CPF do comprador:</p>
+          <input
+            type="text"
+            value={cpf}
+            placeholder="Digite seu CPF..."
+            onChange={(e) => setCpf(e.target.value)}
+          />
+          <Link to="/sucesso">
+            <button onClick={() => botaoSucesso(idSelecionados, nome, cpf)}>
+              Reservar assento(s)
+            </button>
+          </Link>
+        </div>
+
         <footer>
           <div className="container-filme">
             <img src={assentos.movie.posterURL} alt="" />
@@ -53,13 +94,17 @@ export default function GetAssentos({ idSessao }) {
       </>
     );
   }
-
-  function clicarAssento(disponivel, id) {
-    // if (disponivel) {
-    //   if (selecionado === " selecionado") {
-    //     setSelecionado("");
-    // } else {
-    //        setSelecionado(" selecionado");
-    // }
+  function botaoSucesso(idSelecionados, nome, cpf) {
+    let obj = { ids: idSelecionados, nome: nome, cpf: cpf };
+    let objNavigate = {
+      ids: idSelecionados,
+      nome: nome,
+      cpf: cpf,
+      titulo: assentos.movie.title,
+      dia: assentos.day.weekday,
+      hora: assentos.name,
+    };
+    navigate("/sucesso", { state: objNavigate });
+    postAssentos(obj);
   }
 }

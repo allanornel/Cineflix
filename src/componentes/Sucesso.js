@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Sucesso() {
+  const location = useLocation();
+  console.log(location);
   return (
     <main className="sucesso">
       <h1 className="titulo">Pedido feito com sucesso!</h1>
